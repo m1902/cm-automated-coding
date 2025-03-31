@@ -25,6 +25,12 @@ echo 'export OLLAMA_MODELS=/oscar/data/shared/ollama_models' >> ~/.bashrc
 source ~/.bashrc
 ```
 
+This only needs to be done once. To verify if the variable contains a path to models, you may execute
+
+```shell
+echo $OLLAMA_MODELS
+```
+
 ---
 
 ### Step 3: Start a GPU Node
@@ -41,7 +47,7 @@ Once the node is allocated, its name will be displayed
 (like `gpu2009`) and your prompt will change to something like:
 
 ```bash
-[username@gpu2009]$
+[username@gpu2009 ~]$
 ```
 
 If you're not automatically logged in, proceed to the next step.
@@ -66,20 +72,22 @@ exit
 
 ### Step 5: Start the Ollama Server
 
-Load the module and start the Ollama server inside your node:
+Load the module and start the Ollama server **inside your node**:
 
 ```bash
 module load ollama
 ollama serve &
 ```
 
-When the server is ready, you’ll see something like this in the output:
+When the server is ready (after several seconds), you’ll see something like this in the output:
 
 ```
 Listening on 127.0.0.1:11434 (version 0.5.12)
 looking for compatible GPUs
 name="Quadro RTX 6000" total="23.6 GiB" available="23.5 GiB"
 ```
+
+If a user prompt doesn't show in console, don't worry - you may continue working.
 
 ---
 
@@ -103,11 +111,10 @@ name="Quadro RTX 6000" total="23.6 GiB" available="23.5 GiB"
 
 ### Step 1: Create the `projects` Directory
 
-After logging into Oscar:
+You may execute this in a node, too (or directly after logging into Oscar):
 
 ```bash
 mkdir -p ~/projects # creates a directory in your home directory
-cd ~/projects # move to projects directory
 ```
 
 ---
@@ -117,6 +124,7 @@ cd ~/projects # move to projects directory
 This is a one-time set-up of the repository:
 
 ```bash
+cd ~/projects # move to projects directory
 git clone https://github.com/m1902/cm-automated-coding
 cd cm-automated-coding
 ```
