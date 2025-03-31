@@ -50,6 +50,9 @@ Once the node is allocated, its name will be displayed
 [username@gpu2009 ~]$
 ```
 
+This means that a `username` is currently logged into the
+`gpu2009` machine.
+
 If you're not automatically logged in, proceed to the next step.
 
 ---
